@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListDistiller", "ListDistiller\ListDistiller.csproj", "{9FA11F52-67BD-495D-8FCB-443E4826E4F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListDistillerCLI", "ListDistillerCLI\ListDistillerCLI.csproj", "{060B9FE5-8228-4357-9EB2-E6548BBC6EF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FA11F52-67BD-495D-8FCB-443E4826E4F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FA11F52-67BD-495D-8FCB-443E4826E4F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FA11F52-67BD-495D-8FCB-443E4826E4F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FA11F52-67BD-495D-8FCB-443E4826E4F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{060B9FE5-8228-4357-9EB2-E6548BBC6EF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{060B9FE5-8228-4357-9EB2-E6548BBC6EF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{060B9FE5-8228-4357-9EB2-E6548BBC6EF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{060B9FE5-8228-4357-9EB2-E6548BBC6EF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F5F9291-D06D-4499-986D-ACB4DC2866D6}
+	EndGlobalSection
+EndGlobal

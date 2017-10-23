@@ -1,0 +1,73 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListDistiller"        
+        x:Class="ListDistiller.MainWindow"
+        mc:Ignorable="d"
+        xmlns:viewmodel="clr-namespace:ListDistiller.ViewModels"
+        Title="MainWindow" Height="428.202" Width="622.276">
+    <Window.Resources>
+        <viewmodel:ViewModel x:Key="VM" />
+    </Window.Resources>
+    <Grid DataContext="{StaticResource VM}">
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" FontSize="24"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,4" TextWrapping="Wrap" Text="{Binding Message}" VerticalAlignment="Bottom"/>
+        <TabControl x:Name="mainTab"  Margin="8,47,8,24">
+            <TabItem Header=" 1 - Original Text ">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" >
+                        <TextBlock>Type or Paste text lines  to be processed in text box below and press</TextBlock>
+                        <Button Margin="10,0" Content="Load"  Width="75" Click="LoadText_Click" />
+                    </StackPanel>
+
+
+                    <TextBox x:Name="textBox" Margin="5,30,5,5" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header=" 2 - Settings ">
+                <Grid Background="#FFE5E5E5">
+                    <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Height="128" Margin="20">
+                        <CheckBox Content="Case insensitive" HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="200" IsChecked="{Binding FilterIgnoreCase}" Margin="0,16,0,0"/>
+                        <CheckBox Content="Ignore Punctuation" HorizontalAlignment="Left" Height="16" Margin="0,40,0,0" VerticalAlignment="Top" Width="200" IsChecked="{Binding FilterIgnorePunctuation}"/>
+                        <CheckBox Content="Ignore Whitespace" HorizontalAlignment="Left" Height="16" Margin="0,65,0,0" VerticalAlignment="Top" Width="200" IsChecked="{Binding FilterIgnoreSpaces}"/>
+                        <CheckBox Content="Fuzzy Abbreviation" HorizontalAlignment="Left" Height="16" Margin="0,89,0,0" VerticalAlignment="Top" Width="200" IsChecked="{Binding FilterAbbreviation}"/>
+                        <Button Content="Process" x:Name="processButton" HorizontalAlignment="Left" Margin="225,48,0,0" VerticalAlignment="Top" Width="113" Click="processButton_Click" Height="50" RenderTransformOrigin="0.652,1.051" />
+
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header=" 3 - Processed List ">
+                <Grid Background="#FFE5E5E5">
+                    <ListView  ItemsSource="{Binding DisplayAdvertisers}" Margin="10,40,10,10" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <WrapPanel>
+                                    <TextBlock Text="{Binding  RawText}" FontWeight="Bold"  />
+                                    <TextBlock Text=", " />
+                                    <TextBlock Text=" (" />
+                                    <TextBlock Text="Macthes: " />
+                                    <TextBlock Text="{Binding Matches.Count}" FontWeight="Bold" />
+                                    <TextBlock Text=") " />
+                                    <TextBlock Text=" [" />
+                                    <TextBlock Text="Macthes: " />
+                                    <TextBlock Text="{Binding ScrubbedText}" FontWeight="Bold" />
+                                    <TextBlock Text="]" />
+                                </WrapPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+                    <CheckBox Content="Only Show Matched Entries" HorizontalAlignment="Left" Height="16" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" IsChecked="{Binding OnlyShowMatches}"/>
+                    <TextBlock HorizontalAlignment="Center" Margin="8" Text="-" />
+                    <Button x:Name="SaveOutput" Content="Save to file" HorizontalAlignment="Right" Height="25" Margin="5" VerticalAlignment="Top" Width="118" Click="SaveOutput_Click" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
